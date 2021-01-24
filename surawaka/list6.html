@@ -52,6 +52,58 @@
 		if(isNaN(num)){
 			console.log("変換失敗");
 		};
+
+
+		// エンコード ・　デコード
+		var encode = encodeURIComponent("こんにちは");
+		console.log(encode);
+		var decode = decodeURIComponent(encode);
+		console.log(decode);
+
+
+		// グローバル変数・ローカル変数
+		var str = "グローバル";
+		function func1(){
+			var str = "func1"; //ローカルスコープ（関数内でしか使えない）
+			console.log(str);
+		}
+		function func2(){
+			var str = "func2";
+			console.log(str);
+		}
+		func1();
+		func2();
+		console.log(str);
+
+
+		// グローバル変数の値の変移
+		var global = 0;
+		function func(){
+			global++;
+		}
+		for(var i = 0; i < 10; i++){
+			func();
+		}
+		console.log(global); //変数globalはグローバルスコープ内で値を保持し続ける
+
+
+		// 関数を変数へ代入
+		function sayHello(){
+			console.log("こんにちは");
+		}
+		var f = sayHello; // 代入する時（）はいらない
+		f();
+
+		//関数の定義と変数定義を同時にする
+		var h = function hello(){
+			console.log("やあ、元気！");
+		}; // セミコロンをつけてどこまでが変数なのかを明確にしないといけない
+		h();
+
+		// 即時関数
+		(function (name){
+			console.log(name + "さん、こんにちは");
+		})("よしお");
 	</script>
 </head>
 <body>
