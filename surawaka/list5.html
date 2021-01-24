@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>javascriptの練習</title>
+	<script>
+		// if文 比較演算子
+		var color = "青";
+		if (color == "青"){
+			console.log("進む");
+		}else{
+			console.log("止まる");
+		};
+
+		// if文　論理演算子
+		var color = "青";
+		if(color == "青" || color == "緑"){
+			console.log("進む");
+		}else{
+			console.log("止まる");
+		};
+
+		// 真偽値の反転
+		var a;
+		console.log(a);
+		if(!a){
+			console.log("aは空です");
+		};
+
+		// 他方向分岐
+		var color = "黒";
+		if(color == "青" || color == "緑"){
+			console.log("進む");
+		}
+		else if(color == "黄"){
+			console.log("急いで進む");
+		}
+		else if(color == "赤"){
+			console.log("止まる");
+		}
+		else{
+			console.log("信号機の故障");
+		};
+
+		// switch文
+		var a = 2;
+		switch(a){
+			case 1:
+				console.log("aは1です");
+			case 2:
+				console.log("aは2です"); // 一致したらその後すべて実行
+			case 3:
+				console.log("aは3です");
+			default:
+				console.log("一致しない");
+		};
+
+		// switch文から抜ける　break文
+		var b = 2;
+		switch(b){
+			case 1:
+				console.log("bは1です");
+			case 2:
+				console.log("bは2です");
+			case 3:
+				console.log("bは3です");
+				break;
+			default:
+				console.log("一致しない");
+		};
+
+		// while文 条件が	falseになると終了
+		var c = 1;
+		while(c <= 100){
+			c *= 2;
+			console.log(c);
+		};
+		console.log("終了");
+
+		// for文
+		for(var i = 1; i <= 5; i++){
+			console.log(i + "回目");
+		};
+
+		var number = [10, 20, 30];
+		for (var i = 0; i < number.length; i++){
+			console.log(number[i]);
+		};
+
+		// 連想配列の要素す文を繰り返し実行　for-in文
+		var favorites = {
+			food: "カレーライス",
+			color: "青",
+			number: 7
+		};
+		for (var key in favorites){
+			console.log(key + " : " + favorites[key]);
+		};
+
+		// for文とbreak文
+		var tickets = [290, 296, 299, 301, 305];
+		for(var i = 0; i < tickets.length; i++){
+			if(tickets[i] >= 300){
+				break; // trueになったら抜け出す
+			}
+			console.log(tickets[i]);
+		}
+		console.log("終了");
+
+		// for文とcontinue文
+		var tickets = [ "指定席", "自由席", "指定席", "自由席", "指定席"];
+		for(var i = 0; i < tickets.length; i++){
+			if(tickets[i] == "自由席"){
+				continue; // trueになっら抜けて次の繰り返しへ
+			}
+			console.log(i + " : " + tickets[i]);
+		}
+		console.log("終了");
+	</script>
+</head>
+<body>
+
+</body>
+</html>

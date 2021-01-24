@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>javascriptの練習</title>
+	<script>
+		function sayHello(){
+			console.log("こんにちは");
+		}
+		sayHello();
+
+
+		// 引数
+		function Hello(name){
+			console.log(name + "さん、こんにちは");
+		}
+		Hello("よしお");
+
+
+		// 戻り値
+		function calc(){
+			var num = 0;
+			for(var i = 1; i <= 10; i++){
+				num += i;
+			}
+			return num;
+		}
+		var result = calc();
+		console.log(result);
+
+
+		function calcCircle(radius){
+			return radius*radius*3.14;
+		}
+		function callFunc(){
+			var area = calcCircle(5);
+			return area;
+		}
+		console.log(callFunc());
+
+
+		// 数値変更
+		var str = "10";
+		console.log(str + 10);
+		var num = parseInt(str);
+		console.log(num + 10);
+
+
+		// 結果がNanの時にtrue
+		var str = "A";
+		var num = parseInt(str);
+		if(isNaN(num)){
+			console.log("変換失敗");
+		};
+	</script>
+</head>
+<body>
+
+</body>
+</html>
