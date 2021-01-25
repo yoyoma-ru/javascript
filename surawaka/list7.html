@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>javascript7章</title>
+	<script>
+		var obj = {
+			name: "よしお",
+			greet: function(){
+				console.log("はじめまして");
+			}
+		};
+		obj.greet();
+
+
+		// thisキーワード
+		var obj = {
+			name: "よしこ",
+			greet: function(){
+				console.log(this.name + "です。はじめまして");
+			}
+		};
+		obj.greet();
+
+
+		// 別のオブジェクトのメソッドを呼び出す callメソッド
+		var obj1 = {
+			name: "よしお",
+			greet: function(){
+				console.log(this.name + "です。はじめまして");
+			}
+		};
+		var obj2 = {
+			name: "ゆりこ"
+		};
+		obj1.greet.call(obj2);
+
+		var obj1 = {
+			name: "よしー",
+			greet: function(age, from){
+				console.log(this.name + "です。はじめまして");
+				console.log("年齢は" + age + "歳です");
+				console.log("出身地は" + from + "です");
+			}
+		};
+		var obj2 = {
+			name: "ユリコ"
+		};
+		obj1.greet.call(obj2, 6, "アメリカ");
+
+		// applyメソッド 第2引数以降を配列形式にして渡しす
+		var param = [8, "イタリア"];
+		obj1.greet.apply(obj, param);
+
+
+		// dateオブジェクト
+		var today = new Date();
+		console.log("今日は" +
+			today.getFullYear() + "年は" +
+			(today.getMonth() + 1) + "月" + //getMonthだけ0~11の整数
+			today.getDate() + "日です。");
+
+
+		// Mathメソッド
+		console.log(Math.ceil(1.5));
+		console.log(Math.floor(1.5));
+		console.log(Math.round(1.5));
+
+
+		// Arrayオフジェクト　pushメソッド
+		var numbers = [10, 20, 30];
+		numbers.push(40, 50);
+		console.log(numbers);
+
+		// Array joinメソッド
+		var numbers = [10, 20,30,40,50];
+		var str = numbers.join("");
+		console.log(str);
+
+		// reverseメソッド
+		numbers.reverse();
+		console.log(numbers);
+
+		// sortメソッド 配列の要素をアルファベット順に
+		var words = ["one", "two", "three", "four", "five"];
+		words.sort();
+		console.log(words);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
