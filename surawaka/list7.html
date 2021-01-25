@@ -77,14 +77,41 @@
 		var str = numbers.join("");
 		console.log(str);
 
-		// reverseメソッド
+		// Array reverseメソッド
 		numbers.reverse();
 		console.log(numbers);
 
-		// sortメソッド 配列の要素をアルファベット順に
+		// Array sortメソッド 配列の要素をアルファベット順に
 		var words = ["one", "two", "three", "four", "five"];
 		words.sort();
 		console.log(words);
+
+
+		// Stringオブジェクト
+		//indexOfメソッド　sliceメソッド
+		var company = "アルシア株式会社";
+		var index = company.indexOf("株式会社");
+		var name = company.slice(0, index);
+		console.log(name);
+
+		//splitメソッド
+		var message = "hello my dear friend";
+		var words = message.split(" ");
+		console.log(words);
+
+
+		//電話番号チェックの正規表現
+		/^0[0-9]{1,4}-?[0-9]{1,4}-?[0-9]{4}$/
+
+		// 正規表現の利用　Stringオブジェクトのmatchメソッド
+		var date = "2013年3月31日";
+		var result = date.match(/[0-9]+/g);
+		console.log(result);
+		//replaceメソッド
+		var message = "This is a pen";
+		var result = message.replace(/is/g, "at");
+		console.log(result);
+
 	</script>
 </head>
 <body>
