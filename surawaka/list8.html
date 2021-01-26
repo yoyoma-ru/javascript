@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta <meta charset="utf-8">
+	<title>8章　javascriptの練習</title>
+	<script>
+		function sayHello(){
+			alert("こんにちは,こんばんは");
+		}
+	</script>
+</head>
+<body onload="console.log('おはよう');"> <!-- loadイベント -->
+	<!-- clickイベント -->
+	<button onclick="alert('こんちには');">クリック</button>
+	<button onclick="sayHello();">クリック</button>
+
+	<!-- mouseover/mouseoutイベント -->
+	<div class="box1" style="width: 120px; height: 120px; background-color: red;" onmouseover="console.log('カーソルが乗っています');" onmouseout="console.log('カーソルが外れました');" >
+	</div>
+
+
+	<!-- onfoucus/onblurイベント -->
+	<input type="text" onfocus="console.log('フォーカスを取得')" onblur="console.log('フォーカスが外れました')">
+
+
+	<!-- onchangeイベント -->
+	<select onchange="console.log('項目が変更されました');">
+		<option>リンゴ</option>
+		<option>イチゴ</option>
+		<option>ミカン</option>
+	</select>
+</body>
+</html>
