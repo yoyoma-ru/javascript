@@ -6,7 +6,10 @@
 	<script>
 		function sayHello(){
 			alert("こんにちは,こんばんは");
-		}
+		};
+		function check(e){
+			console.log(e.value + "がクリックされました");
+		};
 	</script>
 </head>
 <body onload="console.log('おはよう');"> <!-- loadイベント -->
@@ -18,16 +21,20 @@
 	<div class="box1" style="width: 120px; height: 120px; background-color: red;" onmouseover="console.log('カーソルが乗っています');" onmouseout="console.log('カーソルが外れました');" >
 	</div>
 
-
 	<!-- onfoucus/onblurイベント -->
 	<input type="text" onfocus="console.log('フォーカスを取得')" onblur="console.log('フォーカスが外れました')">
-
 
 	<!-- onchangeイベント -->
 	<select onchange="console.log('項目が変更されました');">
 		<option>リンゴ</option>
-		<option>イチゴ</option>
+		<onption>イチゴ</option>
 		<option>ミカン</option>
 	</select>
+
+
+	<!-- イベントの発生元を調べる -->
+	<input type="button" value="ボタン1" onclick="check(this);">
+	<input type="button" value="ボタン2" onclick="check(this);">
+	<input type="button" value="ボタン3" onclick="check(this);">
 </body>
 </html>
