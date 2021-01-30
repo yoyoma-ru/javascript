@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>9章javascript</title>
+	<script>
+		function check(){
+			var result = confirm("確認用のメッセージを表示します");
+			if (result){
+				console.log("OK");
+			}
+			else{
+				console.log("キャンセルする");
+			}
+		};
+	</script>
+</head>
+<body>
+	<!-- confirm -->
+	<button onclick="check();">クリック</button>
+</body>
+</html>
