@@ -24,6 +24,17 @@
 			document.getElementById("ippan_area").className = "passive";
 			document.getElementById("hojin_area").className = "active";
 		}
+		function showDiv(){
+			var htmlstr = "";
+			for(var i=1; i<=3; i++){
+				htmlstr += "<div class='box" + i + "'></div>";
+			}
+			document.getElementById("div_area").innerHTML = htmlstr;
+			this.disabled = true;
+		}
+		window.onload = function(){
+			document.getElementById("btn").onclick = showDiv();
+		};
 	</script>
 </head>
 <body>
@@ -59,6 +70,12 @@
 			<li>電話番号<input type="text" name="tel"></li>
 			<li>内線番号<input type="text" name="naisen"></li>
 		</ul>
+	</div>
+
+	<!-- タグの作成 -->
+	<div>
+		<button id="btn">読み込み</button>
+		<div id="div_area">ここにdivが作成されます</div>
 	</div>
 </body>
 </html>
