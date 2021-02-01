@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>11章javascript</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#msg").css("font-size", "30px");
+		});
+		$(function(){
+			$("#parent1 > p").css("font-size", "30px");
+		});
+		$(function(){
+			$("#parent2 p").css("font-size", "30px");
+		});
+		$(function(){
+			$("p + a").css("font-size", "20px");
+		});
+		$(function(){
+			$("p ~ span").css("color", "red");
+		});
+
+
+		$(function(){
+			$("#fruits > li:first").css("background-color", "red");
+		});
+		$(function(){
+			$("#fruits > li:last").css("background-color", "red");
+		});
+		$(function(){
+			$("#fruits > li:even").css("font-size", "25px");
+		});
+		$(function(){
+			$("#fruits > li:odd").css("color", "skyblue");
+		});
+		$(function(){
+			$("#fruits > li:contains('かん')").css("color", "grey");
+		});
+
+		$(function(){
+			$("#fruits2 > li:not(:first)").css("background-color", "#f1f1f1");
+		});
+		$(function(){
+			$("#fruits2 > li:eq(2)").css("color", "red");
+		});
+
+		$(function(){
+			$("input[name='tel']").css("background-color", "red");
+		});
+
+		// 要素に対して複数回スタイルを設定
+		$(function(){
+			$("#fruits2 > li").css("font-size", "50px");
+			$("#fruits2 > li:even").css("border", "2px solid #000");
+		});
+
+		$(function(){
+			var elm = $("#fruits3 > li");
+			elm.css("background-color", "grey");
+			elm.filter(":even").css("color", "white");
+		});
+		$(function(){
+			$("#kigyou > li").css("background-color", "red").filter(":odd").css("color", "white");
+		});
+
+
+		$(function(){
+			console.log($("div").filter(".item").html());
+			console.log($("div").find(".item").html());
+		});
+	</script>
+</head>
+<body>
+	<p id="msg">こんにちは</p>
+
+	<!-- 子セレクタ -->
+	<div id="parent1">
+		<p>段落1</p>
+		<div>
+			<p>段落2</p>
+		</div>
+	</div>
+
+	<!-- 小孫セレクタ -->
+	<div id="parent2">
+		<p>段落1</p>
+		<div >
+			<p>段落2</p>
+		</div>
+	</div>
+
+	<!-- 階層セレクタ -->
+	<p>ヘッダ</p>
+	<a href="prev.html">前ページへ</a>
+	<a href="next.html">次のページへ</a>
+	<p>
+		本文
+		<a href="index.html">topへ</a>
+	</p>
+
+	<!-- 間接セレクタ -->
+	<p>ヘッダ</p>
+	<span>前</span>
+	<span>次</span>
+	<p>
+		本文
+		<span>top</span>
+	</p>
+
+
+	<!-- 先頭要素の取得 -->
+	<ul id="fruits">
+		<li>りんご</li>
+		<li>みかん</li>
+		<li>いちご</li>
+		<li>ぶどう</li>
+		<li>いよかん</li>
+	</ul>
+
+	<!-- 除外検索 -->
+	<ul id="fruits2">
+		<li>りんご</li>
+		<li>みかん</li>
+		<li>いちご</li>
+		<li>なし</li>
+		<li>いちじく</li>
+	</ul>
+
+	<!-- 属性フィルタ -->
+	<ul>
+		<li>名前（漢字）<input type="text" name="kanji"></li>
+		<li>名前（カナ）<input type="text" name="kana"></li>
+		<li>住所<input type="text" name="address"></li>
+		<li>電話<input type="text" name="tel"></li>
+		<li>メールアドレス<input type="text" name="email"></li>
+	</ul>
+
+	<!-- filterメソッド -->
+	<ul id="fruits3">
+		<li>りんご</li>
+		<li>みかん</li>
+		<li>いちご</li>
+		<li>パイナップル</li>
+		<li>キウイ</li>
+	</ul>
+
+	<!-- メソッドチェーンの利用 -->
+	<ul id="kigyou">
+		<li>三菱</li>
+		<li>アップル</li>
+		<li>HONDA</li>
+		<li>Panasonic</li>
+		<li>スターバックス</li>
+	</ul>
+
+	<!-- filterメソッドとfindメソッドの利用 -->
+	<div class="item">
+		<p>あいうえお</p>
+	</div>
+	<div>
+		<p class="item">かきくけこ</p>
+	</div>
+</body>
+</html>
