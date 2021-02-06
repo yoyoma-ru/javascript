@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>javacsript</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#msg1").html($("#msg2").html());
+		});
+
+		$(function(){
+			$("#msg3").val($("#msg4").val());
+		});
+	</script>
+</head>
+<body>
+	<!-- htmlメソッド -->
+	<p id="msg1">おはよう</p>
+	<p id="msg2">こんにちは</p>
+
+	<!-- valメソッド -->
+	<input type="text" id="msg3" value="おはよう">
+	<input type="text" id="msg4" value="こんにちは">
+</body>
+</html>
