@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>javacsript</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="jquery.min.js"></script>
 	<script>
 		$(function(){
@@ -50,7 +51,21 @@
 		function sayHello2(){
 			alert("おはよう");
 			$("#btn3").off("click", sayHello2);
+			// $(this).attr("disabled", "disabled");
 		}
+
+		$(function(){
+			$("#msg").addClass("highlight");
+		});
+		$(function(){
+			$("#msgmsg").removeClass("highlight2");
+		});
+
+		$(function(){
+			$("input[name='target']").on("change", function(){
+				$("#ippan_area, #hojin_area").toggleClass("active passive");
+			});
+		});
 	</script>
 </head>
 <body>
@@ -78,5 +93,28 @@
 	<button id="btn2">クリック2</button>
 	<!-- イベントハンドラを削除する -->
 	<button id="btn3">クリック3</button>
+
+
+	<!-- cssの追加.削除 -->
+	<p id="msg" class="large">こんにちは</p>
+	<p id="msgmsg" class="large2 highlight2">こんにちは</p>
+
+
+	<!-- toggleClass 表示エリアの切り替え -->
+	<input type="radio" name="target" value="i" checked>一般用
+	<input type="radio" name="target" value="h">法人用
+	<ul id="ippan_area" class="active">
+		<li>氏名<input type="text" name="company"></li>
+		<li>住所<input type="text" name="address"></li>
+		<li>電話番号<input type="text" name="tel"></li>
+	</ul>
+	<ul id="hojin_area" class="passive">
+		<li>会社名<input type="text" name="company"></li>
+		<li>部署名<input type="text" name="busho"></li>
+		<li>担当者名<input type="text" name="tanto"></li>
+		<li>住所<input type="text" name="address"></li>
+		<li>電話番号<input type="text" name="tel"></li>
+		<li>内線番号<input type="text" name="naisen"></li>
+	</ul>
 </body>
 </html>
