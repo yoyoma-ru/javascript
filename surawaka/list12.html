@@ -20,6 +20,37 @@
 		$(function(){
 			$("input[value='orange']").removeAttr("checked");
 		});
+
+		$(function(){
+			$("#btn").on("click", sayHello);
+		});
+		function sayHello(){
+			alert("こんにちは");
+		}
+
+		$(function(){
+			$("#btn1").on("click", {name: "よしお"}, sayHello1);
+		});
+		function sayHello1(event){
+			alert(event.data.name + "さん、こんにちは");
+		}
+
+		$(function(){
+			$("#btn2")
+				.on("click", printHello)
+				.on("click", sayHello);
+		});
+		function printHello(){
+			console.log("こんにちは");
+		}
+
+		$(function(){
+			$("#btn3").on("click", sayHello2);
+		});
+		function sayHello2(){
+			alert("おはよう");
+			$("#btn3").off("click", sayHello2);
+		}
 	</script>
 </head>
 <body>
@@ -38,5 +69,14 @@
 	<input type="checkbox" name="fruits" value="apple" checked>りんご
 	<input type="checkbox" name="fruits" value="orange" checked>みかん
 	<input type="checkbox" name="fruits" value="strawberry" checked>いちご
+
+	<!-- 引数のない関数をイベントハンドラに登録する -->
+	<button id="btn">クリック</button>
+	<!-- 引数のある関数をイベントハンドラに登録 -->
+	<button id="btn1">クリック1</button>
+	<!-- 一つのイベントに複数の関数を設定する -->
+	<button id="btn2">クリック2</button>
+	<!-- イベントハンドラを削除する -->
+	<button id="btn3">クリック3</button>
 </body>
 </html>
