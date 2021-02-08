@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>javascript</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#fruits")
+				.append("<li>パイナップル</li>")
+				.prepend("<li>パパイヤ</li>");
+		});
+
+
+		$(function(){
+			$("p")
+				.after("<p>おやすみ</p>")
+				.before("<p>おはよう</p>");
+		});
+
+
+		$(function(){
+			$("#friends").empty();
+		});
+
+
+		$(function(){
+			$("#btn").on("click", function(){
+				$(".fruit").replaceWith("<h1>りんご</h1>");
+			});
+		});
+
+
+		$(function(){
+			setSubCategory();
+			$("#main").on("change", setSubCategory);
+		});
+		function setSubCategory(){
+			var subList = [
+				["ノート", "タワー", "一体型"],
+				["マウス", "キーボード", "モニタ", "スピーカー"]
+				];
+			var i = $("#main > option:selected").val();
+			console.log(i);
+			var sub = $("#sub");
+			console.log(sub);
+			sub.empty();
+			for(var j=0; j<subList[i].length; j++){
+				sub.append("<option value=' " + j + " '>" + subList[i][j] + "</option>");
+			}
+		};
+	</script>
+</head>
+<body>
+	<!-- append methodとprepend method -->
+	<ul id="fruits">
+		<li>りんご</li>
+		<li>みかん</li>
+		<li>いちご</li>
+		<li>ぶどう</li>
+	</ul>
+
+
+	<!-- afterメソッド、beforeメソッド -->
+	<p>こんにちは</p>
+	<p>1</p>
+
+
+	<!-- emptyメソッド -->
+	<ul id="friends">
+		<li>トム</li>
+		<li>マイク</li>
+		<li>アンナ</li>
+	</ul>
+
+	<!-- replaceWithメソッド -->
+	<div>
+		<button id="btn">クリック</button>
+		<div><h4 class="fruit">みかん</h4></div>
+	</div>
+
+
+	<!-- セレクトボックスの操作 -->
+	<select id="main">
+		<option value="0">PC本体</option>
+		<option value="1">PC周辺機器</option>
+	</select>
+	<select id="sub"></select>
+</body>
+</html>
