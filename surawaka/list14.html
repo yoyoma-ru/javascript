@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>java14章</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#open").on("click", function(){
+				$("#block").show("normal");
+			});
+			$("#close").on("click", function(){
+				$("#block").hide("normar");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<button id="open">展開する</button>
+		<button id="close">隠す</button>
+	</div>
+	<div id="block"></div>
+</body>
+</html>
