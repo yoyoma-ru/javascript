@@ -13,14 +13,55 @@
 			$("#close").on("click", function(){
 				$("#block").hide("normar");
 			});
+			$("#switch").on("click", function(){
+				$("#block").toggle("normar");
+			});
+		});
+
+		$(function(){
+			$("#open1").on("click", function(){
+				$("#block1").slideDown("normar");
+			});
+			$("#close1").on("click", function(){
+				$("#block1").slideUp("normar");
+			});
+		});
+
+		$(function(){
+			$("#open2").on("click", function(){
+				$("#block2").fadeIn("normar");
+			});
+			$("#close2").on("click", function(){
+				$("#block2").fadeOut("normar");
+			});
 		});
 	</script>
 </head>
 <body>
+	<!-- show,hide,toggle -->
 	<div>
 		<button id="open">展開する</button>
 		<button id="close">隠す</button>
+		<button id="switch">切り替え</button>
 	</div>
 	<div id="block"></div>
+
+
+	<!-- slideDown,Up -->
+	<div>
+		<button id="open1">開く</button>
+		<button id="close1">閉じる</button>
+	</div>
+	<div id="block1"></div>
+
+
+	<!-- fadeIn,fadeOut -->
+	<div>
+		<button id="open2">現れる</button>
+		<button id="close2">隠す</button>
+	</div>
+	<div id="block2"></div>
+
+
 </body>
 </html>
