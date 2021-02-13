@@ -1,0 +1,27 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	padding: 30px;
+}
+
+/*list14_2*/
+#photoFrame{
+	position: relative;
+	width: 200px;
+	height: 150px;
+	overflow: hidden;
+}
+#imageArea{
+	position: absolute;
+	left: 0;
+	width: 1000px;
+	height: 150px;
+	white-space: nowrap;
+}
+img{
+	width: 200px;
+	height: 150px;
+}

@@ -4,21 +4,35 @@
 	<meta charset="utf-8">
 	<title>14章</title>
 	<script src="jquery.min.js"></script>
+	<script src="slideshow.js"></script>
 	<script>
 		$(function(){
 			$("#large").on("click", function(){
 				$("#photo").animate({
 					"width": "90%",
 					"height": "90%"
-				}, 2000, "linear");
+				}, 2000, "linear").animate({
+					"width": "30%",
+					"height": "30%"
+				}, 1000, "linear");
 			});
 		});
 	</script>
+	<link rel="stylesheet" type="text/css" href="style-2.css">
 </head>
 <body>
 	<div>
 		<button id="large">拡大</button>
 	</div>
 	<img src="./image1.jpg" id="photo" width="20%" height="20%">
+
+	<!-- slideshow -->
+	<div id="photoFrame">
+		<div id="imageArea"></div>
+	</div>
+	<div>
+		<button id="prev">前へ</button>
+		<button id="next">次へ</button>
+	</div>
 </body>
 </html>
