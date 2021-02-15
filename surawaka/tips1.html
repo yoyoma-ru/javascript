@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>tips01</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script src="main01.js"></script>
+</head>
+<body>
+	<!-- エラー表示エリア -->
+	<div id="errorArea"></div>
+	<form name="frml" action="xxx">
+		<fieldset>
+			<legend>名前</legend>
+			<label>姓
+				<input type="text" name="lastname">
+			</label>
+			<label>名
+				<input type="text" name="firstname">
+			</label>
+		</fieldset>
+		<fieldset>
+			<legend>性別</legend>
+			<label>
+				<input type="radio" name="gender" value="m">男
+			</label>
+			<label>
+				<input type="radio" name="gender" value="f">女
+			</label>
+		</fieldset>
+		<input type="button" id="sendBtn" value="送信">
+	</form>
+</body>
+</html>
