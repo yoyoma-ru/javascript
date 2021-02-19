@@ -1,3 +1,4 @@
+/*tips4.html*/
 .small{
 	width: 50px;
 }
@@ -6,4 +7,16 @@
 }
 .large{
 	width: 150px;
+}
+
+
+/*tips5.html*/
+table, th, td{
+	padding: 0px 10px;
+	border-collapse: collapse;
+	border: solid 1px black;
+}
+.highlight{
+	background-color: blue;
+	color: #fff;
 }

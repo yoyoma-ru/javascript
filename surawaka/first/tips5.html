@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips5</title>
+	<script src="jquery.min.js"></script>
+	<!-- <script src="tips05.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="tips.css">
+	<script>
+		$(function(){
+			$("#userlist tr:contains('ゴールド')").addClass("highlight");
+		});
+	</script>
+</head>
+<body>
+	<h1>会員名簿</h1>
+	<table id="userlist">
+		<tr>
+			<th>No</th>
+			<th>名前</th>
+			<th>ランク</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>田中</td>
+			<td>ゴールド</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>鈴木</td>
+			<td>シルバー</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>渡辺</td>
+			<td>ゴールド</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>佐藤</td>
+			<td>ゴールド</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>高橋</td>
+			<td>プラチナ</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tipss6</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("input[type='text']").on("focus", function(){
+				$(this).css("background-color", "pink");
+			});
+			// カーソルが外れたタイミングで実行する関数
+			$("input[type='text']").on("blur",function(){
+				$(this).css("background-color", "white");
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="text" name="text1">
+	<input type="text" name="text2">
+	<input type="text" name="text3">
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips8</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#content").hide();
+			// 先頭から20文字分抽出する
+			var omit = $("#content").text().slice(0, 20);
+			$("#omitText").text(omit);
+			$("a[rel='all']").on("click", showAll);
+		});
+		function showAll(){
+			$(this).hide();
+			$("#omitText").hide();
+			$("#content").show();
+		}
+	</script>
+</head>
+<body>
+	<p id="content">
+		こんにちは。久しぶりの更新です。
+		先週の三連休に、北海道に旅行にいってきました。<br>
+		北海道ではズワイガニとタラバガニと毛蟹を食べてきました。
+	</p>
+	<!-- 省略部分のエリア -->
+	<p id="omitText"></p>
+	<a href="javascript:void(0)" rel="all">続きを読む</a>
+	<!-- aタグのhref属性に"javascript:void(0)"を指定すると、aタグのリンク機能が無効になる。リンククリック時にリンク先ページの表示でなく、JSによる処理を実行したい場合は、これをhrefに記述する。 -->
+</body>
+</html>
