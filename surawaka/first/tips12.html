@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips12</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#topbtn").hide();
+			$(window).on("scroll", showTopbtn);
+			$("#topbtn").on("click", gotoTop);
+		});
+		function showTopbtn(){
+			if($(window).scrollTop() > 0){
+				$("#topbtn").show();
+			}
+			else{
+				$("#topbtn").hide();
+			}
+		}
+		function gotoTop(){
+			$("html, body").animate({"scrollTop" : "0"}, 300);
+			$("#topbtn").hide();
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="tips12.css">
+</head>
+<body>
+	<h1 style="border-bottom: 2px solid red;">トップーページへ戻る</h1>
+	<img src="images/list1.jpg" id="topbtn">
+</body>
+</html>

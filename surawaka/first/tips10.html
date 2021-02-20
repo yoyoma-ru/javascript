@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips10</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$(".menu ul").hide();
+			$(".menu img[name='close']").hide();
+			$(".menu img").on("click", visibleChange);
+		});
+		function visibleChange(){
+			// parent→開閉ボタンの親要素<div>
+			// children→<div>の子要素<img>×2,<ul>
+			$(this).parent().children().toggle();
+		}
+	</script>
+</head>
+<body>
+	<h1>開閉式のコード</h1>
+	<div class="menu">
+		<img src="images/list1.jpg" name="open" style="width: 100px; height: 100px;">
+		<img src="images/list2.jpg" name="close" style="width: 100px; height: 100px;">
+		フードメニュー
+		<ul>
+			<li>チキンカレー</li>
+			<li>ベジタブルカレー</li>
+			<li>キーマカレ</li>
+		</ul>
+	</div>
+	<div class="menu">
+		<img src="images/list1.jpg" name="open" style="width: 100px; height: 100px;">
+		<img src="images/list2.jpg" name="close" style="width: 100px; height: 100px;">
+		ドリンクメニュー
+		<ul>
+			<li>烏龍茶</li>
+			<li>ラッシー</li>
+			<li>コーヒー</li>
+		</ul>
+	</div>
+</body>
+</html>

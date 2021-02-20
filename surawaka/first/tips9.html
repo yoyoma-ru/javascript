@@ -10,7 +10,9 @@
 		});
 		function convert(){
 			var price = $("#price").val();
+			// whileの条件は「1文字以上の数字列と3文字の数字列が隣接している」
 			while(price.match(/([0-9]+)([0-9]{3})/)){
+				// replaceメソッド"後方参照"を用いて()で囲んだ部分を痴漢文字列として利用できる→$1,$2
 				price = price.replace(/([0-9]+)([0-9]{3})/, "$1,$2");
 			}
 			$("#price").val(price);
@@ -19,6 +21,6 @@
 </head>
 <body>
 	<input type="text" id="price">
-	<input type="button" id="btn">
+	<input type="button" id="btn">変換
 </body>
 </html>

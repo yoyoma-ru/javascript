@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="uft-8">
+	<title>tips11</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#nav").hide();
+			$(window).on("mousemove", showNavArea);
+		});
+		function showNavArea(e){
+			// イベント発生時の引数としてマウスポインタの座標を取得横方向clientX,縦方向clientY
+			// isメソッドは対象要素がセレクタ書式で記述した条件に一致した場合にtrueを返す
+			if($("#nav").is(':hidden') && e.clientY<30){
+				$("#nav").slideDown(500);
+			}
+			else if($("#nav").is(':visible') && e.clientY>=30){
+				$("#nav").slideUp(500);
+			}
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="tips.css">
+</head>
+<body>
+	<h2>自動的に隠れるナビゲーションメニュー</h2>
+	<div id="nav">
+		<ul>
+			<li>Top</li>
+			<li>News</li>
+			<li>Gallery</li>
+			<li>Contact</li>
+		</ul>
+	</div>
+</body>
+</html>
