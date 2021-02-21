@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips16</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#tabArea .tab").on("click", tabChange);
+		});
+		function tabChange(){
+			// タブと本文の初期化
+			$("#tabArea .tab").removeClass("active");
+			$("#content div").hide();
+			// タブと本文の有効化
+			$(this).addClass("active");
+			var id = $(this).attr("id");
+			$("#content-" + id).show();
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="tips.css">
+</head>
+<body>
+	<h1>タブメニューをつくる</h1>
+	<div id="tabArea">
+		<div id="top" class="tab active">
+			<span>top</span>
+		</div>
+		<div id="about" class="tab">
+			<span>about</span>
+		</div>
+		<div id="access" class="tab">
+			<span>access</span>
+		</div>
+	</div>
+	<!-- コンテンツ表示エリア -->
+	<div id="content">
+		<div id="content-top">アシアル株式会社のwebサイトです</div>
+		<div id="content-about" class="hidden">アシアルはアジアのリーダーの略です</div>
+		<div id="content-access" class="hidden">御茶ノ水駅から徒歩10分です</div>
+	</div>
+</body>
+</html>

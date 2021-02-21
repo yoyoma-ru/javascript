@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>tips14</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#left, #right").on("click", openDoor);
+		});
+		function openDoor(){
+			$("#left").animate({"left": "-500px"}, 400);
+			$("#right").animate({"left": "1000px"}, 400);
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="tips.css">
+</head>
+<body>
+	<div class="door">
+		<img src="images/list1.jpg" id="photo">
+		<img src="images/list2.jpg" id="left" style="width: 500px;">
+		<img src="images/list3.jpg" id="right" style="width: 500px;">
+	</div>
+</body>
+</html>

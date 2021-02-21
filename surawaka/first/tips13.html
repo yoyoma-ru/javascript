@@ -4,12 +4,22 @@
 	<meta charset="utf-8">
 	<title>tips13</title>
 	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$(window).on("scroll", peelOff);
+		});
+		function peelOff(){
+			var scroll = $(window).scrollTop();
+			var height = $("#over img").height();
+			$("#over").css("height", height-scroll);
+		}
+	</script>
 	<link rel="stylesheet" type="text/css" href="tips.css">
 </head>
 <body>
 	<div class="body">
-		<div id="over"><img src="images/list1.jpg"></div>
-		<div id="under"><img src="images/list2.jpg"></div>
+		<div id="over"><img src="images/list1.jpg" style="height: 500px; width: 50%;"></div>
+		<div id="under"><img src="images/list2.jpg" style="height: 500px; width: 50%;"></div>
 	</div>
 </body>
 </html>

@@ -47,9 +47,9 @@ table, th, td{
 
 /*tips13*/
 .body{
-	height: 200px;
+	height: 2000px;
 }
-.body > div{
+.body div{
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -61,4 +61,63 @@ table, th, td{
 }
 #under{
 	z-index: 1;
+}
+
+
+/*tips14*/
+.door{
+	position: relative;
+	width: 1000px;
+	left: 500px;
+}
+.door img{
+	position: absolute;
+	top: 0;
+}
+#photo{
+	z-index: 1;
+	left: 0;
+}
+#left{
+	z-index: 2;
+	left: 0;
+}
+#right{
+	z-index: 2;
+	left: 500px;
+}
+
+
+/*tips16*/
+#content{
+	width: 400px;
+	height: 100px;
+	padding: 20px;
+	margin-top: 1px;
+	border: solid 1px black;
+	z-index: 1;
+}
+#tabArea{
+	height: 30px;
+	white-space: nowrap;
+	z-index: 2;
+}
+.tab{
+	width: 80px;
+	height: 30px;
+	padding-left: 10px;
+	display: inline-block;
+	border: 1px solid black;
+	border-radius: 5px 5px 0 0;
+	background-color: white;
+	cursor: pointer;
+}
+.active{
+	border-bottom: 1px solid white;
+}
+.tab span{
+	line-height: 30px;
+}
+.hidden{
+	display: none;
 }
