@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>list4</title>
+	<script>
+		alert("Hello Wrold!");
+		console.log("hello,world");
+
+		var number = [10,20,30];
+		console.log(number[1]);
+		for(i=0; i<=number.length; i++){
+			console.log(number[i]);
+		}
+
+		number[0] = 60;
+		console.log(number);
+		number[3] = 120;
+		console.log(number);
+
+		// 二次元配列
+		var numbers = [[1, 2, 3], [11, 12, 13]];
+		console.log(numbers);
+		console.log(numbers[0][0]);
+		console.log(numbers[1][2]);
+
+		// 連想配列
+		var favorites = {
+			food : "カレー",
+			color : "青",
+			item : "服"
+		};
+		console.log(favorites.food);
+		console.log(favorites["item"]);
+		favorites.sports = "サッカー";
+		 console.log(favorites.sports);
+		 console.log(favorites);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
