@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>5章制御構文</title>
+</head>
+<body>
+	<!-- list5-1 -->
+	<script>
+		var color = "青";
+		color = "赤";
+		if(color == "青"){
+			console.log("進む");
+		}else{
+			console.log("止まる");
+		}
+
+		var color = "青";
+		if (color == "青" && color=="緑"){
+			console.log("進みます");
+		}else{
+			console.log("止まります");
+		}
+
+		// 真偽値を逆転させる論理演算子
+		var a;
+		if(!a){ // a = undefinedでfalseに等しい
+			console.log(a);
+			console.log("aは空です");
+		}
+	</script>
+
+	<!-- list5-2 -->
+	<script>
+		var a = 2;
+		switch(a){ //一致してから以降すべての処理を実行する
+			case 1:
+				console.log("aは1です");
+			case 2:
+				console.log("aは2です");
+			case 3: console.log("aは3です");
+					break; //switch文から抜け出す
+			default:
+				console.log("一致なし");
+		}
+	</script>
+
+	<!-- list5-3 -->
+	<script>
+		var a = 1;
+		while(a <= 100){
+			a *= 2;
+			console.log(a);
+		}
+		console.log("終了")
+	</script>
+
+	<!-- list5-4 -->
+	<script>
+		for(var i=1; i<=5; i++){
+			console.log(i + "回目");
+		}
+
+		var number = [10, 20, 30];
+		for(var i=0; i < number.length; i++){
+			console.log(number[i]);
+		}
+
+		// 任意の文字列をキーとする連想配列をforでは扱えない→for-in文
+		var favorites = {
+			food: "カレーライス",
+			color: "青",
+			number: 7
+		};
+		for(var key in favorites){
+			// varの変数名に連想配列名を入れる
+			// 連想配列名分の回数処理を行う
+			console.log(key + ' : ' + favorites[key]);
+		}
+	</script>
+
+	<!-- list5-5 -->
+	<script>
+		// break文
+		var tickets = [290, 300, 310, 320, 330];
+		for(var i=0; i<tickets.length; i++){
+			if(tickets[i] >= 315){
+				break;
+			}
+			console.log(tickets[i]);
+		}
+
+		// continue文 ある処理だけ飛ばして、そのまま最後まで処理を継続したいときに利用
+		var tickets = ["指定席", "自由席", "指定席", "自由席", "指定席"];
+		for(var i=0; i<tickets.length; i++){
+			if(tickets[i] == "自由席"){
+				continue
+			}
+			console.log(i + " : " + tickets[i]);
+		}
+		console.log("終了");
+	</script>
+</body>
+</html>
