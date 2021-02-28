@@ -5,14 +5,15 @@
 	<title>6章</title>
 </head>
 <body>
+	<!-- list6-1 -->
 	<script>
-		// list6-2
+		// 1-1
 		function sayHello(name, age, sex){
 			console.log("こんにちは。" + name + "です。年齢は" + age + "歳です。性別は"　+ sex + "です。" );
 		}
 		sayHello("マイク", 22, "男");
 
-		// list6-3
+		// 1-2
 		function calc(){
 			var num=0;
 			for(var i=1; i<=10; i++){
@@ -23,7 +24,7 @@
 		var result = calc();
 		console.log(result);
 
-		// list6-4
+		// 1-3
 		function calcCircle(radius){
 			return radius * radius * 3.14;
 		}
@@ -32,6 +33,100 @@
 			return area;
 		}
 		console.log(callFunc());
+	</script>
+
+	<!-- list6-2 -->
+	<script>
+		// parseInt関数の利用
+		var str = "10";
+		console.log(str + 10); // ←stringとintegerを合わせると文字列になるのね
+		var num = parseInt(str);
+		console.log(num + 10);
+
+		// isNaN関数の利用
+		var str = "A";
+		var num = parseInt(str);
+		if(isNaN(num)){　// 引数として指定された値がNaNの場合にtrueを返す
+			console.log("変換失敗");
+		}
+
+		// エンコードとデコード
+		var encode = encodeURIComponent("こんにちはabcd");
+		console.log(encode);
+		var decode = decodeURIComponent(encode);
+		console.log(decode);
+	</script>
+
+
+	<!-- list6-3 -->
+	<script>
+		// グローバル変数の利用
+		function func(){
+			str = "ABC"; // 変数宣言を省略している
+			console.log(str);
+		}
+		func();
+		console.log(str);
+
+		// ローカル変数の利用
+		function func2(){
+			var str2 = "ABC";
+			console.log(str2);
+		}
+		func2();
+		// console.log(str2);
+
+		// 異なるスコープの同名の変数
+		var str = "グローバル";
+		function string1(){
+			var str = "str1";
+			console.log(str);
+		}
+		function string2(){
+			var str = "str2";
+			console.log(str);
+		}
+		string1();
+		string2();
+		console.log(str);
+
+		// グローバル変数の値の変移
+		var global = 0;
+		function func3(){
+			global++;
+		}
+		for(var i=0; i<10; i++){
+			func3();
+		}
+		console.log(global);
+	</script>
+
+
+	<!-- list6-4 -->
+	<script>
+		// 関数を変数に代入
+		function sayHello2(){
+			console.log("こんにちは");
+		}
+		var f = sayHello2; //代入するときは()をつけない
+		f();
+
+		// 関数の定義と変数への代入を同時に行う
+		var f2 = function sayHello3(){
+			console.log("おはよう");
+		};
+		f2();
+
+		// 匿名関数
+		var f3 = function(){
+			console.log("これは匿名関数です");
+		};
+		f3();
+
+		// 即時関数ー一度しか呼び出ししない関数
+		(function(name){
+			console.log(name + "さん、こんにちは。これは即時関数で実行中");
+		})("よしお");
 	</script>
 </body>
 </html>
