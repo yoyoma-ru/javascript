@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>6章</title>
+</head>
+<body>
+	<script>
+		// list6-2
+		function sayHello(name, age, sex){
+			console.log("こんにちは。" + name + "です。年齢は" + age + "歳です。性別は"　+ sex + "です。" );
+		}
+		sayHello("マイク", 22, "男");
+
+		// list6-3
+		function calc(){
+			var num=0;
+			for(var i=1; i<=10; i++){
+				num += i
+			}
+			return num;
+		}
+		var result = calc();
+		console.log(result);
+
+		// list6-4
+		function calcCircle(radius){
+			return radius * radius * 3.14;
+		}
+		function callFunc(){
+			var area = calcCircle(5);
+			return area;
+		}
+		console.log(callFunc());
+	</script>
+</body>
+</html>
