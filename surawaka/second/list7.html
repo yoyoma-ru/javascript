@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>7章</title>
+</head>
+<body>
+	<h1>オブジェクトの基礎</h1>
+
+	<!-- 7-1 -->
+	<script>
+		var obj = {
+			name: "よしお",
+			// thisは自分自身の所属するオブジェクトを指す
+			greet: function(){ console.log(this.name + "です。はじめまして");}
+		};
+		obj.greet();
+
+		// callメソッド＝別のオブジェクトのメソッドを借りる
+		var obj1 = {
+			name: "かおり",
+			greet: function(age, from){
+				console.log(this.name + "です。初めまして。");
+				console.log("年齢は" + age + "歳です。");
+				console.log("出身地は" + from + "です。よろしく。");
+			}
+		};
+		var obj2 = { name: "ゆりこ"};
+		obj1.greet.call(obj2, 6, "アメリカ");
+
+		// applyメソッドーー配列形式で渡す
+		var param = [ 15, "Italia"];
+		obj1.greet.apply(obj2, param);
+	</script>
+
+	<!-- 7-2 -->
+	<script>
+		// dateオブジェクト
+		var today = new Date();
+		console.log("今日は" +
+			today.getFullYear() + "年" +
+			(today.getMonth() + 1) + "月" +
+			today.getDate() + "日です。");
+
+		// Mathオブジェクト
+		console.log(Math.ceil(1.1));
+		console.log(Math.floor(1.5));
+		console.log(Math.round(1.5));
+
+		//array 配列の操作に関する機能
+		var numbers = [10, 20, 30];
+		numbers.push(40, 50); // pushメソッド
+		console.log(numbers);
+
+		var numbers = [10,20,30,40,50];
+		var str = numbers.join("-"); // joinメソッド、配列の要素を連結
+		console.log(str);
+
+		numbers.reverse(); // reverseメソッド
+		console.log(numbers);
+
+		var words = ["one", "two", "three", "four", "five"];
+		words.sort(); //sortメソッドーーアルファベット順に入れ替える
+		console.log(words);
+
+		// stringオブジェクト
+		var company = "アシアル株式会社";
+		var index = company.indexOf("株式会社"); //indexOfメソッド:指定して文字列が何文字目に出現するのか(0スタート)
+		console.log(index);
+		var name = company.slice(0, index);// sliceメソッド:抜き出す文字の開始一と終了位置を引数で指定(終了位置は抜きだすもの＋1を指定)
+		console.log(name);
+
+		var message = "hello my dear friend";
+		var words = message.split(" ");// splitメソッド:指定した区切り文字で文字列を配列につくりかえる
+		console.log(words);
+	</script>
+
+	<!-- 7-3 -->
+	<script>
+		// matchメソッドの利用
+		var date = "2020年3月1日";
+		var result = date.match(/[0-9]+/g);
+		console.log(result);
+
+		// replaceメソッド
+		var message = "This is a pen";
+		var result = message.replace(/is/g, "at");
+		console.log(result);
+	</script>
+</body>
+</html>
