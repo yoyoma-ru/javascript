@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>9章</title>
+	<!-- 9-2 / 9-3-->
+	<script>
+		function check(){
+			var result = confirm("確認用のメッセージを表示します");
+			if(result){
+				console.log("OK");
+			}else{
+				console.log("キャンセル");
+			}
+		}
+
+		var count = 0;
+		var timer = setInterval(output, 500);
+		function output(){
+			count += 0.5;
+			console.log(count + "秒経過");
+			if(count >= 5){
+				clearInterval(timer);
+			}
+		}
+	</script>
+
+	<!-- 9-4 -->
+	<script>
+		function inputCheck(){
+			if(document.frml.lastname.value == ""){
+				alert("姓を入力してください");
+			} else if(document.frml.firstname.value == ""){
+				alert("名を入力してください");
+			}else if(!document.frml.gender[0].checked && !document.frml.gender[1].checked){
+				alert("性別を入力してください");
+			}else{
+				document.frml.submit();
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>ブラウザオブジェクト</h1>
+	<button onclick="check();">confirm</button>
+
+	<button onclick="open('list9_2.html', null, 'width=300, height=300');">開く</button>
+
+	<button onclick="location.href='list9_3.html';">移動する</button>
+
+	<!-- 9-4 -->
+	<form name="frml" action="xxx.html">
+		<fieldset>
+			<legend>名前</legend>
+			<label>姓<input type="text" name="lastname"></label>
+			<label>名<input type="text" name="firstname"></label>
+		</fieldset>
+		<fieldset>
+			<legend>性別</legend>
+			<label><input type="radio" name="gender" value="m">男</label>
+			<label><input type="radio" name="gender" value="f">女</label>
+		</fieldset>
+		<input type="button" onclick="inputCheck();" value="送信">
+	</form>
+</body>
+</html>
