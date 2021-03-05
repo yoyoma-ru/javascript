@@ -3,8 +3,85 @@
 <head>
 	<meta charset="utf-8">
 	<title>10章</title>
+	<link rel="stylesheet" type="text/css" href="list10.css">
+	<script>
+		function setValue(){
+			var elm = document.getElementById("tx1");
+			elm.value = "hello";
+		}
+		function setValue2(){
+			var elm = document.getElementsByName("tx");
+			console.log(elm);
+			console.log(elm[1].id);
+			for(var i=0; i<elm.length; i++){
+				// console.log(elm);
+				elm[i].value = "Good Morning";
+			}
+		}
+	</script>
+	<script>
+		function showIppan(){
+			document.getElementById("ippan_area").className = "active";
+			document.getElementById("hojin_area").className = "passive";
+		}
+		function showHojin(){
+			document.getElementById("ippan_area").className = "passive";
+			document.getElementById("hojin_area").className = "active";
+		}
+		function showImage(){
+			// 初期化することで文字列を連結したときにundefinedが表示されない
+			var htmlstr = "";
+			for(var i=1; i<=3; i++){
+				htmlstr += "<img src='images/list"+ i +".jpg' style='height: 200px;'>";
+			}
+			document.getElementById("imageArea").innerHTML = htmlstr;
+			this.disabled = true;
+		}
+		window.onload = function(){
+			document.getElementById("btn").onclick = showImage;
+		};
+		function showImage2(number){
+			var htmlstr = "<img src='images/list"+ number + ".jpg' style='height: 200px;'>"
+			document.getElementById("imageArea").innerHTML = htmlstr;
+		}
+		window.onload = function(){
+			document.getElementById("btn2").onclick = function(){
+				showImage(1);
+			};
+		};
+	</script>
 </head>
 <body>
+	<div>
+		<input id="tx1" name="tx" type="text">
+		<input id="tx2" name="tx" type="text">
+		<input id="tx3" name="tx" type="text">
+		<button onclick="setValue();">クリック</button>
+		<button onclick="setValue2();">クリック</button>
+	</div>
 
+	<div>
+		<input type="radio" name="target" value="i" onchange="showIppan();" checked>一般用
+		<input type="radio" name="target" value="h" onchange="showHojin();">法人用
+		<ul id="ippan_area" class="active">
+			<li>氏名<input type="text" name="name"></li>
+			<li>住所<input type="text" name="address"></li>
+			<li>電話番号<input type="text" name="tel"></li>
+		</ul>
+		<ul id="hojin_area" class="passive">
+			<li>会社名<input type="text" name="company"></li>
+			<li>部署名<input type="text" name="busho"></li>
+			<li>担当者名<input type="text" name="tanto"></li>
+			<li>住所<input type="text" name="address"></li>
+			<li>電話番号<input type="text" name="tel"></li>
+			<li>内線番号<input type="text" name="naisen"></li>
+		</ul>
+	</div>
+
+	<div>
+		<!-- <button id="btn" onclick="showImage();">読み込み</button> -->
+		<button id="btn">読み込み</button>
+		<button id="btn2">読み込み2</button>
+		<div id="imageArea">ここに画像が埋め込まれます</div>
 </body>
 </html>
