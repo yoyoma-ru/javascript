@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		function MatrixPath(strArr) { 
+
+  // code goes here
+  var findShortestPath = function(startCoordinates, grid){
+    var distanceFromTop = startCoordinates[0];
+    var distanceFromLeft = startCoordinates[1];
+
+    // 各locationはその座標と、到達に必要な最短距離を保持する
+    var location = {
+      distanceFromTop: distanceFromTop,
+      distanceFromLeft: distanceFromLeft,
+      path: [],
+      start: "start"
+    };
+
+    // 内部ですでにスタート位置を持っているlocationでqueueを初期化
+    var queue = [location];
+    while(queue.length > 0){
+      // queueから最初の位置(配列）をshiftでとる、queueにはそれ以外が残る
+      var currentLocation = queue.shift();
+      // console.log("①残り配列数＝"+queue.length+"/現在のgrid"+"("+currentLocation.distanceFromTop+","+currentLocation.distanceFromLeft+")");
+
+      // 北を調べる
+      var newLocation = exploreInDerection(currentLocation, 'North', grid);
+      if(newLocation.status === 'goal'){
+        // queue.length = 0;
+        // obsCounts.length = 0;
+        // createGrid(gridY, gridX);
+        // createObstacle(gridY, gridX);
+        return true;
+      }
+      else if(newLocation.status === 'valid'){
+        queue.push(newLocation);
+      }
+
+      // 東
+      var newLocation = exploreInDerection(currentLocation, 'East', grid);
+      if(newLocation.status === 'goal'){
+        // queue.length = 0;
+        // obsCounts.length = 0;
+        // createGrid(gridY, gridX);
+        // createObstacle(gridY, gridX);
+        return true;
+      }
+      else if(newLocation.status === 'valid'){
+        queue.push(newLocation);
+      }
+
+      // 南
+      var newLocation = exploreInDerection(currentLocation, 'South', grid);
+      if(newLocation.status === 'goal'){
+        // queue.length = 0;
+        // obsCounts.length = 0;
+        // createGrid(gridY, gridX);
+        // createObstacle(gridY, gridX);
+        return true;
+      }
+      else if(newLocation.status === 'valid'){
+        queue.push(newLocation);
+      }
+
+      // 西
+      var newLocation = exploreInDerection(currentLocation, 'West', grid);
+      if(newLocation.status === 'goal'){
+        // queue.lenght = 0;
+        // obsCounts.length = 0;
+        // createGrid(gridY, gridX);
+        // createObstacle(gridY, gridX);
+        return true;
+      }
+      else if(newLocation.status === 'valid'){
+        queue.push(newLocation);
+      }
+    }
+    // 有効な経路がみつからない場合
+    return false;
+  }
+
+  // locationのstatusを調べる
+  var locationStatus = function(location, grid){
+    var dft = location.distanceFromTop;
+    var dfl = location.distanceFromLeft;
+    if(location.distanceFromLeft < 0 || 
+      location.distanceFromLeft >= gridX ||
+      location.distanceFromTop < 0 ||
+      location.distanceFromTop >= gridY){
+      // グリッド上にない
+      return 'invalid'
+    }
+    else if(grid[dft][dfl] === 'goal'){
+      return 'goal';
+    }
+    // else if(grid[dft][dfl] ！== 'empty'){
+      // return 'valid';
+    // }
+    else if(grid[dft][dfl] !== 'empty'){
+      // locationは障害物か既にチェックしたかのどちらか
+      return 'blocked';
+    }
+    else{
+      return 'valid';
+    }
+  }
+
+  // 指定された位置から指定された方向にグリッドを調べる
+  var exploreInDerection = function(currentLocation, direction ,grid){
+    var newPath = currentLocation.path.slice();
+    newPath.push(direction);
+    var dft = currentLocation.distanceFromTop;
+    var dfl = currentLocation.distanceFromLeft;
+    if(direction === 'North'){
+      dft -= 1;
+    }
+    else if(direction === 'East'){
+      dfl += 1;
+    }
+    else if(direction === 'South'){
+      dft += 1;
+    }
+    else if(direction === 'West'){
+      dfl -= 1;
+    }
+
+    var newLocation = {
+      distanceFromTop: dft,
+      distanceFromLeft: dfl,
+      path: newPath,
+      status: 'unknow'
+    };
+    newLocation.status = locationStatus(newLocation, grid);
+
+    // 新しい位置が有効なら'visited'をつける
+    if(newLocation.status === 'valid'){
+      grid[newLocation.distanceFromTop][newLocation.distanceFromLeft] = 'visited';
+    }
+    return newLocation;
+  }
+
+  var gridY = strArr.length;
+  var gridX = strArr[0].length;
+  var grid = [];
+
+  // 2次元配列に変換
+  function createGrid(gridY, gridX){
+    for(var i=0; i<gridY; i++){
+      grid[i] = [];
+      for(var j=0; j<gridX; j++){
+        grid[i][j] = "empty";
+      }
+    }
+    grid[0][0] = 'start';
+    grid[gridY-1][gridX-1] = 'goal'
+  }
+  createGrid(gridY, gridX);
+
+  // }
+  // createGrid(gridY, gridX);
+
+
+  // 0をもつグリッドをobstacleにする、obstacleのグリッド番号を作成
+  var obsCounts = [];
+  // var obsPosition = {gridYnum: "", gridXnum: ""};
+  function createObstacle(gridY, gridX){
+    // var obsCounts = [];
+    for(var i=0; i<gridY; i++){
+      // console.log("obsCounts="+obsCounts.length);
+      var numbers = strArr[i];
+      for(var j=0; j<gridX; j++){
+        var num = numbers.charAt(j);
+        if(num === "0"){
+          grid[i][j] = "obstacle";
+          var obsPosition = {gridYnum: i, gridXnum: j};
+          obsCounts.push(obsPosition);
+        }
+      }
+    }
+  }
+  createObstacle(gridY, gridX);
+
+
+  // 経路
+  // var gridY = strArr.length;
+  // var gridX = strArr[0].length;
+  // var grid = [];
+  // createGrid(gridY, gridX);
+  // grid[0][0]= "start";
+  // createObstacle(gridY, gridX);
+  var result = findShortestPath([0,0], grid);
+
+　//　trueでない場合
+  if(result === true){
+    return result;
+  }
+  else if(result === false){
+    for(var i=0; i<obsCounts.length; i++){
+  //     grid.length = 0;
+  //     obsCounts.lenght = 0;
+
+      // createGrid(gridY, gridX);
+      // createObstacle(gridY, gridX);
+
+      var gridObsY = obsCounts[i].gridYnum;
+      var gridObsX = obsCounts[i].gridXnum;
+      console.log("YX="+gridObsY+gridObsX);
+      // if(0 < i)
+
+      grid[gridObsY][gridObsX] = "visited";
+      // result = findShortestPath([gridObsY,gridObsX], grid);
+      console.log(result);
+    }
+    return result;
+  }
+  // else{
+  //   return "not possible";
+  // }
+
+
+}
+console.log(MatrixPath(["10000", "11011", "10101", "11001"]));
+	</script>
+</body>
+</html>
