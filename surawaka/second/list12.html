@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>list12</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#msg").css("font-size", "50px");
+		});
+
+		// 子セレクタ
+		$(function(){
+			$("#parent > p").css("font-size", "30px");
+		});
+		// 子孫セレクタ
+		$(function(){
+			$("#parent p").css("color", "red");
+		});
+
+		// 階層セレクタ
+		$(function(){
+			$("p + a").css("font-size", "30px");
+		});
+
+		// 間接セレクタ
+		$(function(){
+			$("p ~ a").css("color", "blue");
+		});
+	</script>
+
+	<script>
+		$(function(){
+			$("#fruits > li:first").css("background-color", "red");
+			$("#fruits > li:contains('かん')").css("color", "blue");
+			$("#fruits > li:not(:last)").css("color", "black");
+			$("#fruits > li:eq(2)").css("background-color", "green");
+		});
+
+		$(function(){
+			$("input[name='tel']").css("background-color", "red");
+		});
+
+		// filterメソッド
+		$(function(){
+			var elm = $("#money > li");
+			elm.css("background-color", "blue");
+			elm.filter(":even").css("color", "white");
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<p id="msg">こんにちは</p>
+
+		<!-- 子セレクタの利用 -->
+		<div id="parent">
+			<p>段落1</p>
+			<div>
+				<p>段落2</p>
+			</div>
+			<p>段落3</p>
+		</div>
+
+		<!-- 階層セレクタ -->
+		<p>ヘッダ</p>
+		<a href="prev.html">前のページへ</a>
+		<a href="next.html">次のページへ</a>
+		<p>
+			本文
+			<a href="inde.html">TOPへ</a>
+		</p>
+	</div>
+
+	<div>
+		<ul id="fruits">
+			<li>りんご</li>
+			<li>みかん</li>
+			<li>いちご</li>
+			<li>ぶどう</li>
+			<li>いよかん</li>
+		</ul>
+	</div>
+
+	<ul>
+		<li>名前（漢字）<input type="text" name="kanji"></li>
+		<li>名前（カナ）<input type="text" name="kana"></li>
+		<li>住所<input type="text" name="address"></li>
+		<li>電話番号<input type="text" name="tel"></li>
+		<li>メールアドレス<input type="text" name="email"></li>
+	</ul>
+
+	<ul id="money">
+		<li>1000円</li>
+		<li>2000</li>
+		<li>5000</li>
+		<li>8000</li>
+		<li>10000</li>
+	</ul>
+</body>
+</html>
