@@ -1,0 +1,14 @@
+.large{
+	font-size: 30px;
+}
+.highlight{
+	color: white;
+	background-color: red;
+}
+
+.active{
+	display: block;
+}
+.passive{
+	display: none;
+}

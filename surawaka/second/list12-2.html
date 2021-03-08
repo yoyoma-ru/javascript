@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>list12</title>
+	<link rel="stylesheet" type="text/css" href="list12-2.css">
+	<script src="jquery.min.js"></script>
+	<!-- 12-4 -->
+	<script>
+		$(function(){
+			$("#msg1").html($("#msg2").html());
+			// var elm = $("#msg2").html();
+			// console.log(elm);
+		});
+		$(function(){
+			$("#msg3").val($("#msg4").val());
+		});
+		$(function(){
+			$(".img-1").attr("src", "images/list1.jpg");
+			$(".img-1").attr("height", "200px");
+		});
+		$(function(){
+			$(".img-2").attr("src", "images/list3.jpg");
+		});
+		$(function(){
+			$("input[value='orange']").removeAttr("checked");
+		});
+
+		$(function(){
+			$("#btn")
+				.on("click", sayHello)
+				.on("click", printHello);
+		});
+		function sayHello(){
+			alert("こんちはーーーーー");
+		}
+		function printHello(){
+			alert("おはーーー");
+		}
+
+		$(function(){
+			$("#btn2").on("click", { name: "よしお"}, sayHello2);
+		});
+		function sayHello2(event){
+			alert(event.data.name + "さん。おはよう");
+			$(this).attr("disabled", true);
+		}
+
+		$(function(){
+			$("#btn3").on("click", sayHello3);
+		});
+		function sayHello3(){
+			alert("おれだよおれ");
+			$("#btn3").off("click", sayHello3);
+		};
+
+		$(function(){
+			$(".msg5").on("click", function(){
+				$("#msg5")
+					// .addClass("highlight")
+					.addClass("large highlight");
+			});
+		});
+
+		$(function(){
+			$(".msg6").on("click", function(){
+				$("#msg5")
+					// .removeClass("highlight")
+					.removeClass("highlight large");
+			});
+		});
+
+		$(function(){
+			$("input[name='target']").on("change", function(){
+				$("#ippan_area, #hojin_area").toggleClass("active passive");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<p id="msg1">おはよう</p>
+		<p id="msg2">こんにちは</p>
+	</div>
+	<input type="text" id="msg3" value="うまいぼう">
+	<input type="text" id="msg4" value="うまいチョコ">
+	<img class="img-1">
+	<img class="img-2" src="images/list2.jpg" height="200px">
+	<div>
+		<input type="checkbox" name="fruits" value="apple" checked>りんご
+		<input type="checkbox" name="fruits" value="orange" checked="">みかん
+		<input type="checkbox" name="fruits" value="strawberry">いちご
+	</div>
+	<button id="btn">クリック</button>
+	<button id="btn2">クリック2</button>
+	<button id="btn3">クリック3</button>
+	<p id="msg5" class="">やあ、ぼくはバズだよ</p>
+	<button class="msg5">↑を変更</button>
+	<button class="msg6">↑を戻す</button>
+
+	<div>
+		<input type="radio" name="target" value="i" checked>一般用
+		<input type="radio" name="target" value="h">法人用
+		<ul id="ippan_area" class="active">
+			<li>氏名<input type="text" name="name"></li>
+			<li>住所<input type="text" name="address"></li>
+			<li>電話番号<input type="text" name="tel"></li>
+		</ul>
+		<ul id="hojin_area" class="passive">
+			<li>会社名<input type="text" name="company"></li>
+			<li>住所<input type="text" name="address"></li>
+			<li>担当者名<input type="text" name="tanto"></li>
+		</ul>
+	</div>
+</body>
+</html>
