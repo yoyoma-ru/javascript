@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>list12</title>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#fruits")
+				.append("<li>パイナップル</li>")
+				.prepend("<li>パパイヤ</li>");
+		});
+		$(function(){
+			$("#fruits")
+				.after("<p>おんばんは</p>")
+				.before("<p>おはよう</p>")
+		});
+
+		$(function(){
+			$("#greeting").empty();
+		});
+
+		$(function(){
+			$("#btn").on("click",function(){
+				$(".image").replaceWith("<img src='images/list1.jpg' height='200px'>");
+			});
+		});
+
+
+		$(function(){
+			setSubCategory();
+			$("#main").on("change", setSubCategory);
+		});
+		function setSubCategory(){
+			var subList = [
+				["ノート", "タワー", "一体型"],
+				["マウス", "キーボード", "モニタ", "スピーカー"]
+				];
+			var i = $("#main > option:selected").val();
+			var sub = $("#sub");
+			sub.empty();
+
+			for(var j=0; j<subList[i].length; j++){
+				sub.append("<option value='" + j + "'>" + subList[i][j] + "</option>");
+			}
+		}
+	</script>
+</head>
+<body>
+	<!-- 12-5 -->
+	<ul id="fruits">
+		<li>りんご</li>
+		<li>みかん</li>
+		<li>いちご</li>
+		<li>ぶどう</li>
+	</ul>
+	<ul id="greeting">
+		<li>おはよう</li>
+		<li>こんにちは</li>
+		<li>こんばんは</li>
+	</ul>
+	<button id="btn">クリック</button>
+	<div><p class="image">なーちゃん</p></div>
+
+	<div>
+		<select id="main">
+			<option value="0">PC本体</option>
+			<option value="1">PC周辺機器</option>
+		</select>
+		<select id="sub"></select>
+	</div>
+</body>
+</html>
