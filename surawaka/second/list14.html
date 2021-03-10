@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>list14</title>
+	<link rel="stylesheet" type="text/css" href="list14.css">
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#open").on("click", function(){
+				$("#block").show("normal");
+			});
+			$("#close").on("click", function(){
+				$("#block").hide("fast");
+			})
+			$("#switch").on("click", function(){
+				$("#block").toggle("slow");
+			});
+			$("#slideDown").on("click", function(){
+				$("#block").slideDown("normal");
+			});
+			$("#slideUp").on("click", function(){
+				$("#block").slideUp("fast");
+			});
+			$("#fadeIn").on("click", function(){
+				$("#block2").fadeIn("slow");
+			});
+			$("#fadeOut").on("click", function(){
+				$("#block2").fadeOut("fast");
+			});
+		});
+		$(function(){
+			$("#large").on("click", function(){
+				$("#photo").animate({
+					"widht": "400px",
+					"height": "400px"
+				}, 800, "linear").animate({
+					"widht": "100px",
+					"height": "100px"
+				}, 500, "linear");
+			});
+		});
+	</script>
+	<script>
+		$(function(){
+			var imageArea = $("#imageArea");
+			for(var i=1; i<=5; i++){
+				imageArea.append("<img class='image' src='images/list" + i + ".jpg'>");
+			}
+			$("#next").on("click", function(){
+				if(parseInt(imageArea.css("left")) > -800){
+					toDisabled(); //queueを溜めない処理
+					imageArea.animate({
+						"left": "-=200px"}, "fast", "linear", toEnabled);
+					// toEnabled();
+				}
+			});
+			$("#prev").on("click", function(){
+				if(parseInt(imageArea.css("left")) < 0){
+					toDisabled();
+					imageArea.animate({
+						"left": "+=200px"}, "fast", "linear", toEnabled);
+				}
+			});
+		});
+		function toDisabled(){
+			$("#prev, #next").attr("disabled", true);
+		}
+		function toEnabled(){
+			$("#prev, #next").removeAttr("disabled");
+		}
+	</script>
+</head>
+<body>
+	<h1>アニメーション</h1>
+	<div>
+		<button id="open">展開する</button>
+		<button id="close">隠す</button>
+		<button id="switch">切り替え</button>
+		<button id="slideDown">出現</button>
+		<button id="slideUp">消える</button>
+		<button id="fadeIn">透過1</button>
+		<button id="fadeOut">透過0</button>
+	</div>
+	<div class="flex">
+		<div id="block"></div>
+		<div id="block2"></div>
+		<div id="block3"></div>
+	</div>
+	<div>
+		<button id="large">拡大する</button>
+	</div>
+	<img src="images/list1.jpg" height="200px" id="photo">
+	<div id="photoFrame">
+		<div id="imageArea"></div>
+	</div>
+	<div>
+		<button id="prev">前へ</button>
+		<button id="next">次へ</button>
+	</div>
+</body>
+</html>

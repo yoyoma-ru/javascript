@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>list13</title>
+	<script src="jquery.min.js"></script>
+	<!-- 13-1 -->
+	<script>
+		$(function(){
+			$("#infoArea").load("info.html");
+		});
+	</script>
+
+	<!-- 13-2 -->
+	<script>
+		$(function(){
+			$.getJSON("item.json",
+				function(data){
+					for(var i=0; i<data.length; i++){
+						$("#dataTable")
+							.append("<tr></tr>")
+							.find("tr:last")
+							.append("<td>"+data[i].code+"</td>")
+							.append("<td>"+data[i].name+"</td>")
+							.append("<td>"+data[i].price+"</td>");
+					}
+				}
+			);
+		});
+	</script>
+
+	<script>
+		$(function(){
+			$("#btn").on("click", function(){
+				$.ajax({
+					url: "http://api.openweathermap.org/data/2.5/weather?q="+$("#cityname").val()+"&units=metric&appid="+"1b4a1a18db574d6149c8901634eefb6c",
+					dataType: "jsonp",
+				})
+				.done(function(data){
+					//　通信成功
+					$("#place").text(data.name);
+					$("#temp_max").text(data.main.temp_max);
+					$("#temp_min").text(data.main.temp_min);
+					$("#humidity").text(data.main.humidity);
+					$("#weather").text(data.weather[0].main);
+					$("img").attr("src", "http://openweathermap.org/img/w/"+data.weather[0].icon+".png");
+					$("img").attr("alt", data.weather[0].main);
+				})
+				.fail(function(data){
+					// 通信失敗
+					alert("通信に失敗しました");
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="infoArea"></div>
+
+	<table id="dataTable">
+		<tr>
+			<th>code</th>
+			<th>name</th>
+			<th>price</th>
+		</tr>
+	</table>
+
+	<!-- ajax---WebAPI-dmmから -->
+	<h1>世界の天気予報</h1>
+	<label>都市名</label>
+	<input id="cityname" type="text" size="14" maxlength="14" placeholder="Tokyo">
+	<button id="btn">検索</button><br>
+	<span>場所：</span>
+	<span id="place"></span><br>
+	<span>最高気温</span>
+	<span id="temp_max"></span>
+	<span>℃</span><br>
+	<span>最低気温</span>
+	<span id="temp_min"></span>
+	<span>℃</span><br>
+	<span>湿度</span>
+	<span id="humidity"></span>
+	<span>%</span><br>
+	<span>天気</span>
+	<span id="weather"></span>
+	<div id="icon"><img id="img"></div>
+</body>
+</html>
