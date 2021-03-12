@@ -3,8 +3,33 @@
 <head>
 	<meta charset="utf-8">
 	<title>tips01</title>
-	<script src="jquery.min.js"></script>
-	<script></script>
+	<script src="../jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#sendBtn").on("click", inputCheck);
+		});
+		function inputCheck(){
+			var errors = [];
+
+			if(!$("input[name='lastname']").val()){
+				errors.push("姓を入力してください");
+			}
+			if(!$("input[name='firstname']").val()){
+				errors.push("名を入力してください");
+			}
+			if(!$("input[name='gender']:checked").val()){
+				errors.push("性別を選択してください");
+			}
+			console.log(errors);
+
+			if(errors.length > 0){
+				$("#errorArea").html(errors.join("<br>"));
+			}
+			else{
+				$("form[name='frml']").submit();
+			}
+		}
+	</script>
 </head>
 <body>
 	<div id="errorArea"></div>
@@ -24,7 +49,7 @@
 				<input type="radio" name="gender" value="m">男
 			</label>
 			<label>
-				<input type="raido" name="gender" value="f">女
+				<input type="radio" name="gender" value="f">女
 			</label>
 		</fieldset>
 		<input type="button" id="sendBtn" value="送信">
