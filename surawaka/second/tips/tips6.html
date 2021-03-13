@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips6</title>
+	<script src="../jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("input[type='text']").on("focus", function(){
+				$(this).css("background-color", "pink");
+			});
+			$("input[type='text']").on("blur", function(){
+				$(this).css("background-color", "white");
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="text" name="text1">
+	<input type="text" name="text2">
+	<input type="text" name="text3">
+</body>
+</html>

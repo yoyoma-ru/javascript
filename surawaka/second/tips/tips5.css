@@ -1,0 +1,9 @@
+table, th, td{
+	padding: 0px 10px;
+	border-collapse: collapse;
+	border: solid 1px black;
+}
+.highlight{
+	background-color: pink;
+	color: white;
+}
