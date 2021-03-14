@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips8</title>
+	<script src="../jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#content").hide();
+			var omit = $("#content").text().slice(0, 20);
+			$("#omitText").text(omit);
+			$("a[rel='all']").on("click", showAll);
+		});
+		function showAll(){
+			$(this).hide();
+			$("#omitText").hide();
+			$("#content").show();
+		}
+	</script>
+</head>
+<body>
+	<p id="content">
+		こんにちは<br>
+		木内先生は元気ですか？<br>
+		僕はいまプログラミング学習をしています。<br>
+		railsやjavascriptなどを勉強していますが<br>
+		就職先の言語に沿って学習を深掘りして<br>
+		それをベースに一流のエンジニアになりたいと考えています。
+	</p>
+	<p id="omitText"></p>
+	<a href="javascript:void(0)" rel="all">続きを読む</a>
+</body>
+</html>
