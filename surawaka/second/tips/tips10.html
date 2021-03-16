@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips10</title>
+	<link rel="stylesheet" type="text/css" href="tips10.css">
+	<script src="../jquery.min.js"></script>
+	<script>
+		$(function(){
+			$(".menu ul").hide();
+			$(".menu img[name='close']").hide();
+			$(".menu .queue").on("click", visibleChange);
+		});
+		function visibleChange(){
+			$(this).parent().children().toggle();
+		}
+	</script>
+</head>
+<body>
+	<div class="menu">
+		<div class="plus-icon queue">
+			<div class="tate"></div>
+			<div class="yoko"></div>
+		</div>
+		<img src="../images/close.png" name="close" class="queue">
+		フードメニュー
+		<ul>
+			<li>チキンカレー</li>
+			<li>カツ丼</li>
+			<li>親子丼</li>
+			<li>牛タン定食</li>
+		</ul>
+	</div>
+	<div class="menu">
+		<div class="plus-icon queue">
+			<div class="tate"></div>
+			<div class="yoko"></div>
+		</div>
+		<img src="../images/close.png" name="close" class="queue">
+		ドリンクメニュー
+		<ul>
+			<li>烏龍茶</li>
+			<li>オレンジジュース</li>
+			<li>紅茶</li>
+			<li>コーヒー</li>
+		</ul>
+	</div>
+</body>
+</html>
