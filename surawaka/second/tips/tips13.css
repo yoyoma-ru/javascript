@@ -1,0 +1,19 @@
+body{
+	height: 2000px;
+}
+div{
+	position: fixed;
+	left: 0px;
+	top: 0;
+	height: 600px;
+}
+img{
+	height: 600px;
+}
+#under{
+	z-index: 1;
+}
+#over{
+	z-index: 2;
+	overflow: hidden;
+}

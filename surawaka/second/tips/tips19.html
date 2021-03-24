@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips19</title>
+	<link rel="stylesheet" type="text/css" href="tips18.css">
+	<script src="../jquery.min.js"></script>
+	<script>
+		$(function(){
+			var photoFrame = $("#photoFrame");
+			for(var i=1; i<=5; i++){
+				photoFrame.find(".imageArea").append("<img src='../images/list" + i + ".jpg'>");
+			}
+
+			setInterval(slide, 3000);
+		});
+
+		function slide(){
+			$("#photoFrame").find(".imageArea").animate({"left":"-=200px"}, "fast", "linear", next);
+		}
+
+		currentIndex = 1;
+		function next(){
+			var otherIndex = 1-currentIndex;
+			if(parseInt($("#imageArea" + currentIndex).css("left")) == -800){
+				$("#imageArea" + otherIndex).css("left", "200px");
+			}
+			else if(parseInt($("#imageArea" + currentIndex).css("left")) == -1000){
+				currentIndex = otherIndex;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="photoFrame">
+		<div id="imageArea0" class="imageArea"></div>
+		<div id="imageArea1" class="imageArea"></div>
+	</div>
+</body>
+</html>

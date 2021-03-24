@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips17</title>
+	<link rel="stylesheet" type="text/css" href="tips17.css">
+	<script src="../jquery.min.js"></script>
+	<script>
+		$(function(){
+			var imageArea = $("#imageArea");
+			var navArea = $("#navArea");
+
+			for(var i=1; i<=5; i++){
+				imageArea.append("<img src='../images/list" + i + ".jpg'>");
+				navArea.append("<img src='../images/list" + i + ".jpg'>");
+			}
+
+			$("#navArea img").on("click", moveImageArea);
+		});
+		function moveImageArea(){
+			var imageArea = $("#imageArea");
+			var src = $(this).attr("src");
+			var targetPosition = imageArea.find("img[src='" + src + "']").position().left*-1;
+			console.log(targetPosition);
+			imageArea.animate({"left":targetPosition}, 500);
+		}
+	</script>
+</head>
+<body>
+	<div id="photoFrame">
+		<div id="imageArea"></div>
+	</div>
+
+	<div id="navArea"></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tips13</title>
+	<link rel="stylesheet" type="text/css" href="tips13.css">
+	<script src="../jquery.min.js"></script>
+	<script>
+		$(function(){
+			$(window).on("scroll", peerOff);
+		});
+		function peerOff(){
+			var scroll = $(window).scrollTop();
+			var height = $("#over img").height();
+			$("#over").css("height", height-scroll);
+		}
+	</script>
+</head>
+<body>
+	<div id="over"><img src="../images/list1.jpg"></div>
+	<div id="under"><img src="../images/list3.jpg"></div>
+</body>
+</html>

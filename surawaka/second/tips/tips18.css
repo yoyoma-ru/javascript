@@ -1,0 +1,29 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	padding: 30px;
+}
+#photoFrame{
+	position: relative;
+	width: 200px;
+	height: 150px;
+	overflow: hidden;
+}
+.imageArea{
+	position: absolute;
+	width: 1000px;
+	height: 150px;
+	white-space: nowrap;
+}
+#imageArea0{
+	left: -1000px;
+}
+#imageArea1{
+	left: 0px;
+}
+img{
+	width: 200px;
+	height: 150px;
+}
