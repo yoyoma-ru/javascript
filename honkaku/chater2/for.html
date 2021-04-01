@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script>
+		for(var x=8; x<10; x++){
+			console.log("xの値は" + x);
+		}
+	</script>
+
+	<script>
+		// カンマ演算子
+		for(var i=1, j=1; i<5; i++, j++){
+			console.log("i * j は" + i * j);
+		}
+	</script>
+
+	<script>
+		var data = { apple:150, orange:100, banana:120};
+		for(var key in data){
+			console.log(key + "=" + data[key]);
+		}
+	</script>
+
+	<script>
+		var data = ["apple", "orange", "banana"];
+		for(var key in data){
+			console.log(data[key]);
+			console.log(key);
+		}
+	</script>
+
+	<script>
+		var data = ["apple", "orange", "banana"];
+		for(var i=0; i<data.length; i++){
+			console.log("for文"+data[i]);
+		}
+	</script>
+</body>
+</html>
